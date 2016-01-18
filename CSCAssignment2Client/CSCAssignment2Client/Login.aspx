@@ -59,12 +59,12 @@
             <span class="help-block with-errors"></span>
           </div>
               
-         <asp:Button ID="Button1" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="Button1_Click" />
+         <asp:Button ID="loginButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="loginButton_Click" />
 
 
               </form>                                  
          </div>       
-          
+          <asp:Button ID="registerButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Don't have an account? Register Here!" OnClick="registerButton_Click"  />
          <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              

@@ -14,7 +14,14 @@ namespace CSCAssignment2Client
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+       
+
+        protected void loginButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void registerButton_Click(object sender, EventArgs e)
         {
 
         }
