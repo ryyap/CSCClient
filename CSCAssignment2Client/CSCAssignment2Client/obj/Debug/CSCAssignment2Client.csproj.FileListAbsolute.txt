@@ -1,0 +1,6 @@
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\bin\CSCAssignment2Client.dll.config
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\bin\CSCAssignment2Client.dll
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\bin\CSCAssignment2Client.pdb
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.csprojResolveAssemblyReference.cache
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.dll
+C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.pdb
