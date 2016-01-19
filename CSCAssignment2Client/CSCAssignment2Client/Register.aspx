@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CSCAssignment2Client.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="CSCAssignment2Client.Register" %>
 
 <!DOCTYPE html>
 
@@ -49,25 +49,23 @@
           <span ng-show="message"></span>
           <div class="form-group">
            <label>Username:</label>
-           <input type="text" class="form-control" id="username" ng-model="Login.username" />
-           <!-- <span class="help-block with-errors"></span>-->
+           <input type="text" class="form-control" id="username" ng-model="Login.username"/>
+            <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
            <label>Password:</label>
-          <input type="text" class="form-control" id="password" ng-model="Login.password" />
-            <!--<span class="help-block with-errors"></span>-->
+          <input type="text" class="form-control" id="password" ng-model="Register.password"/>
+            <span class="help-block with-errors"></span>
           </div>
               
-         <asp:Button ID="loginButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="loginButton_Click" />
+         <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
 
 
-                                               
-               
-          
-          <asp:Button ID="registerButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Don't have an account? Register Here!" OnClick="registerButton_Click"  />
-         </form></div>
-               <!-- Content End -->                
+                
+          <asp:Button ID="homeButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Return to Home!" OnClick="homeButton_Click"  />
+       </form></div>
+            <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              
           </div>
