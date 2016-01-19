@@ -10,7 +10,7 @@
 namespace CSCAssignment2Client {
     
     
-    public partial class Login {
+    public partial class Register {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,21 @@ namespace CSCAssignment2Client {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// loginButton control.
+        /// RegisterButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginButton;
+        protected global::System.Web.UI.WebControls.Button RegisterButton;
         
         /// <summary>
-        /// registerButton control.
+        /// homeButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerButton;
+        protected global::System.Web.UI.WebControls.Button homeButton;
     }
 }

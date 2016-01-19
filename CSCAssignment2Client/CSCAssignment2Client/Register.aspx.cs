@@ -7,23 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace CSCAssignment2Client
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Register : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-       
-
-        protected void loginButton_Click(object sender, EventArgs e)
+        protected void RegisterButton_Click(object sender, EventArgs e)
         {
-
+            //Goes to Registration Web Service to process registration
         }
 
-        protected void registerButton_Click(object sender, EventArgs e)
+        protected void homeButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Register.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }
