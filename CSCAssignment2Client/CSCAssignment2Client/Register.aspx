@@ -43,25 +43,37 @@
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
-          
+          <h2>Register User</h2>
           <form id="form1" runat="server">
           
           <span ng-show="message"></span>
           <div class="form-group">
            <label>Username:</label>
-           <input type="text" class="form-control" id="username" ng-model="Login.username"/>
+              <asp:TextBox ID="usernameText" runat="server"></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
            <label>Password:</label>
-          <input type="text" class="form-control" id="password" ng-model="Register.password"/>
+           <asp:TextBox ID="passwordText" runat="server"></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
+              <div class="form-group">
+           <label>Email:</label>
+           <asp:TextBox ID="emailText" runat="server"></asp:TextBox>
+            <span class="help-block with-errors"></span>
+          </div>
+
+          <div class="form-group">
+           <label>Date Of Birth:</label>
+              <asp:Calendar ID="dateofbirthCal" runat="server"></asp:Calendar>
+            <span class="help-block with-errors"></span>
+          </div>
+
               
          <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
-
-
+              <br />
+              <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 
           <asp:Button ID="homeButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Return to Home!" OnClick="homeButton_Click"  />
        </form></div>

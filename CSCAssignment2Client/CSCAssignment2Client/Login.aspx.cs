@@ -18,7 +18,17 @@ namespace CSCAssignment2Client
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-
+            //Goes to Registration Web Service to process registration
+            registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
+            bool login = obj.UserLogin(emailText.Text, passwordText.Text);
+            if (login == true)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                Label1.Text = "Invalid UserName or Password.";
+            }
         }
 
         protected void registerButton_Click(object sender, EventArgs e)

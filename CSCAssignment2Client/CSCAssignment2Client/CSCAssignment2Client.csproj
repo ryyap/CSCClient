@@ -86,6 +86,11 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <None Include="Web References\registerservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\registerservice\RegisterWebService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -120,6 +125,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <None Include="Web References\globalweather\globalweather.disco" />
+    <None Include="Web References\registerservice\RegisterWebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +161,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\registerservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -163,6 +174,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:12801/RegisterWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\registerservice\</RelPath>
+      <UpdateFromURL>http://localhost:12801/RegisterWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CSCAssignment2Client_registerservice_RegisterWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://www.webservicex.net/globalweather.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\globalweather\</RelPath>

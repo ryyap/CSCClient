@@ -32,5 +32,15 @@ namespace CSCAssignment2Client.Properties {
                 return ((string)(this["CSCAssignment2Client_globalweather_GlobalWeather"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:12801/RegisterWebService.asmx")]
+        public string CSCAssignment2Client_registerservice_RegisterWebService {
+            get {
+                return ((string)(this["CSCAssignment2Client_registerservice_RegisterWebService"]));
+            }
+        }
     }
 }
