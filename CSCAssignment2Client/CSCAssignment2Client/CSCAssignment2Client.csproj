@@ -155,6 +155,7 @@
     <Compile Include="DisplayImages.aspx.designer.cs">
       <DependentUpon>DisplayImages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ImageClass.cs" />
     <Compile Include="ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
     </Compile>

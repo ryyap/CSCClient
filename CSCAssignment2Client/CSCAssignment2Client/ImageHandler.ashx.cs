@@ -24,12 +24,13 @@ namespace CSCAssignment2Client
 
             if (context.Request.QueryString["imageID"] != null)
             {
-                int ID = 0;
-                //ID =  Convert.ToInt32(context.Request.QueryString["imageID"]);
-                ID = 98;
-                MemoryStream memoryStream = new MemoryStream(
-                    svc.getImagesByImageID(ID),false
-                    );
+                string a = context.Request.QueryString["imageID"].ToString();
+                int ID = 0 ;
+                ID =  Convert.ToInt32(a);
+               // ID = Convert.ToInt32(a);
+
+
+                MemoryStream memoryStream = new MemoryStream(svc.getImagesByID(ID), false);
                 System.Drawing.Image imgFromDataBase = System.Drawing.Image.FromStream(memoryStream);
                 imgFromDataBase.Save(context.Response.OutputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
             }

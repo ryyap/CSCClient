@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <title>ST0001 : Java Programming</title>
+  <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href = "/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel = "stylesheet">
   <link href = "/bootstrap-3.3.5-dist/css/styles.css" rel = "stylesheet">
