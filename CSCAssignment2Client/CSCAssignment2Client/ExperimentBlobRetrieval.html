@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Javascript/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div id="resultBox"></div>
+    <input type="button" id="testRetrieveButton" value="Retrieve" />
+    <script>
+        $('#testRetrieveButton').on('click',loadImagesFromAzureBlob)
+        window.$resultBoxElement = $('#resultBox');
+        function loadImagesFromAzureBlob() {
+        handler =     $.ajax({
+                async: true,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "POST",
+                url: "http://localhost:12801/BlobManager.asmx/GetBlobList"
+        });
+        handler.done(function (data) {
+            var imageList = data.d;
+            for (index = 0; index < imageList.length; index++) {
+                var $imageElement = $('<img></img>', { src: imageList[index].ImageURI });
+                window.$resultBoxElement.append($imageElement);
+            }
+            
+        })
+        }//end of loadImagesFromAzureBlob
+    </script>
+</body>
+</html>

@@ -6,8 +6,7 @@
  <head>
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href = "/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel = "stylesheet">
-  <link href = "/bootstrap-3.3.5-dist/css/styles.css" rel = "stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   </head>
 
   <body>
@@ -77,13 +76,11 @@
       </div>
 
   
-      <!-- JQuery -->
-      <script src = "/Javascript/jquery-1.11.3.min.js"></script>
-      <script src = "/Javascript/jquery-1.11.3.js"></script>
+    <!-- JQuery -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <!-- Bootstrap -->
-      <script src = "/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
-
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
       
                
       

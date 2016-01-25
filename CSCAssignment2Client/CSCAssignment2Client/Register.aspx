@@ -6,8 +6,7 @@
  <head>
   <title>ST0001 : Java Programming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href = "/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel = "stylesheet">
-  <link href = "/bootstrap-3.3.5-dist/css/styles.css" rel = "stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   </head>
 
   <body>
@@ -81,7 +80,9 @@
               <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 
           <asp:Button ID="homeButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Return to Home!" OnClick="homeButton_Click"  />
-       </form></div>
+       </form>
+
+        </div>
             <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              
@@ -91,14 +92,11 @@
       </div>
 
   
-      <!-- JQuery -->
-      <script src = "/Javascript/jquery-1.11.3.min.js"></script>
-      <script src = "/Javascript/jquery-1.11.3.js"></script>
+     <!-- JQuery -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <!-- Bootstrap -->
-      <script src = "/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
-
-      
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
                
       
 

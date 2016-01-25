@@ -38,6 +38,8 @@ namespace CSCAssignment2Client.imgservice {
         
         private System.Threading.SendOrPostCallback getTenRecentImagesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback getRecordsByUserOperationCompleted;
+        
         private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -89,6 +91,9 @@ namespace CSCAssignment2Client.imgservice {
         
         /// <remarks/>
         public event getTenRecentImagesCompletedEventHandler getTenRecentImagesCompleted;
+        
+        /// <remarks/>
+        public event getRecordsByUserCompletedEventHandler getRecordsByUserCompleted;
         
         /// <remarks/>
         public event HelloWorldCompletedEventHandler HelloWorldCompleted;
@@ -154,26 +159,28 @@ namespace CSCAssignment2Client.imgservice {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addImage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int addImage(int inUploadedBy, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] inImageData) {
+        public int addImage(int inUploadedBy, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] inImageData, string uri) {
             object[] results = this.Invoke("addImage", new object[] {
                         inUploadedBy,
-                        inImageData});
+                        inImageData,
+                        uri});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void addImageAsync(int inUploadedBy, byte[] inImageData) {
-            this.addImageAsync(inUploadedBy, inImageData, null);
+        public void addImageAsync(int inUploadedBy, byte[] inImageData, string uri) {
+            this.addImageAsync(inUploadedBy, inImageData, uri, null);
         }
         
         /// <remarks/>
-        public void addImageAsync(int inUploadedBy, byte[] inImageData, object userState) {
+        public void addImageAsync(int inUploadedBy, byte[] inImageData, string uri, object userState) {
             if ((this.addImageOperationCompleted == null)) {
                 this.addImageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddImageOperationCompleted);
             }
             this.InvokeAsync("addImage", new object[] {
                         inUploadedBy,
-                        inImageData}, this.addImageOperationCompleted, userState);
+                        inImageData,
+                        uri}, this.addImageOperationCompleted, userState);
         }
         
         private void OnaddImageOperationCompleted(object arg) {
@@ -207,6 +214,35 @@ namespace CSCAssignment2Client.imgservice {
             if ((this.getTenRecentImagesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getTenRecentImagesCompleted(this, new getTenRecentImagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getRecordsByUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet getRecordsByUser(int userid) {
+            object[] results = this.Invoke("getRecordsByUser", new object[] {
+                        userid});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getRecordsByUserAsync(int userid) {
+            this.getRecordsByUserAsync(userid, null);
+        }
+        
+        /// <remarks/>
+        public void getRecordsByUserAsync(int userid, object userState) {
+            if ((this.getRecordsByUserOperationCompleted == null)) {
+                this.getRecordsByUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetRecordsByUserOperationCompleted);
+            }
+            this.InvokeAsync("getRecordsByUser", new object[] {
+                        userid}, this.getRecordsByUserOperationCompleted, userState);
+        }
+        
+        private void OngetRecordsByUserOperationCompleted(object arg) {
+            if ((this.getRecordsByUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getRecordsByUserCompleted(this, new getRecordsByUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -347,6 +383,32 @@ namespace CSCAssignment2Client.imgservice {
         private object[] results;
         
         internal getTenRecentImagesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    public delegate void getRecordsByUserCompletedEventHandler(object sender, getRecordsByUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getRecordsByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getRecordsByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

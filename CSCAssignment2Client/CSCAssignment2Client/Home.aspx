@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DisplayImages.aspx.cs" Inherits="CSCAssignment2Client.DisplayImages" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CSCAssignment2Client.Home" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
 </head>
 <body>
      <!--Navbar-->  
@@ -37,44 +37,55 @@
     <!-- Navbar Container End -->
    </div>
    <!--Nav Bar End-->
-    <div class = "container">
+  
+   <div class = "container">
       <div class = "row">
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
+          <h2>Home</h2>
 
     <form id="form1" runat="server">
-    <div id="display" runat="server"></div>
-
-
-    <asp:GridView ID="imgData" runat="server"
-     DataKeyNames="ID" AutoGenerateColumns="false"  
-      OnRowCommand="imgData_RowCommand"  OnRowDataBound="imgData_RowDataBound">
-    <Columns>
-    <asp:BoundField DataField="ID" HeaderText="ID" />
-    <asp:TemplateField HeaderText="Image">
-        <ItemTemplate>
-            <asp:Image ID="Image1" runat="server" Width="200px" Height="200px" 
-                   ImageUrl='<%# "ImageHandler.ashx?imageID=" + Eval("ID")%>'/>
-        </ItemTemplate>
-    </asp:TemplateField>
-    <asp:ButtonField Text="Delete" CommandName="deleteCommand"  ButtonType="Button"  />
-    </Columns>
-    </asp:GridView>
-       
+    <div>
+    <div id="resultBox"></div>
+    </div>
     </form>
-             <!-- Content End -->                
+            </div>
+            <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              
           </div>
         </div>
         
       </div>
-    
+
      <!-- JQuery -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+    <script>
+        window.$resultBoxElement = $('#resultBox');
+        $(document).ready(function () {
+            handler = $.ajax({
+                async: true,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "POST",
+                url: "http://localhost:12801/BlobManager.asmx/GetBlobList"
+            });
+            handler.done(function (data) {
+                var imageList = data.d;
+                for (index = 0; index < imageList.length; index++) {
+                    var $imageElement = $('<img></img>', { src: imageList[index].ImageURI });
+                    $imageElement.attr('width', '250px');
+                    $imageElement.attr('height', '150px');
+                    window.$resultBoxElement.append($imageElement);
+                }
+
+            })
+        });
+    </script>
 </body>
 </html>

@@ -16,8 +16,11 @@ namespace CSCAssignment2Client
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            int length = FileUpload1.PostedFile.ContentLength;
+            string fileName = FileUpload1.FileName.ToString();
             int userid =  Convert.ToInt32(TextBox1.Text);
-            imgservice.ImgWebService svc = new imgservice.ImgWebService();
+            imgservice.ImgWebService imgSvc = new imgservice.ImgWebService();
+            blobservice.BlobManager blobSvc = new blobservice.BlobManager();
 
             byte[] Image = null;
 
@@ -27,7 +30,10 @@ namespace CSCAssignment2Client
                     Image = new byte[FileUpload1.PostedFile.ContentLength];
                     HttpPostedFile UploadedImage = FileUpload1.PostedFile;
                     UploadedImage.InputStream.Read(Image, 0, (int)FileUpload1.PostedFile.ContentLength);
-                    svc.addImage(userid, Image);
+
+                    string uri = blobSvc.UploadFile(Image, length, fileName); 
+
+                    imgSvc.addImage(userid, Image, uri);
 
                     //add this line
                     msg.InnerHtml += "<br/> Successfully Added";
@@ -39,5 +45,7 @@ namespace CSCAssignment2Client
                 msg.InnerHtml = "<br/> Invalid Admin Number";
             }
         }
+
+      
     }
 }

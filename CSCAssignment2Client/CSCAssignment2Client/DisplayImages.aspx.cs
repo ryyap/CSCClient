@@ -15,12 +15,13 @@ namespace CSCAssignment2Client
         {
             if (Page.IsPostBack == false)
             {
+                int userID = 1;
+                //userID = Int32.Parse(Request.QueryString["userid"]);
                 imgservice.ImgWebService svc = new imgservice.ImgWebService();
                 DataSet workDS = new DataSet();
-                workDS = svc.getTenRecentImages();
+                workDS = svc.getRecordsByUser(userID);
 
-               
-                imgData.DataSource = svc.getTenRecentImages();
+                imgData.DataSource = svc.getRecordsByUser(userID);
                 imgData.DataBind();
             }
         }
@@ -51,19 +52,17 @@ namespace CSCAssignment2Client
 
         protected void imgData_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            imgservice.ImgWebService svc = new imgservice.ImgWebService();
             string rowIndex = e.CommandArgument.ToString();
             int id = Int32.Parse(imgData.DataKeys[Int32.Parse(rowIndex)].Value.ToString());
             if (e.CommandName == "deleteCommand")
             {
+                svc.deleteOneImageRecord(id);
 
-                string script = "<script type=\"text/javascript\">alert("+id+");</script>";
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", script);
-
-                imgservice.ImgWebService svc = new imgservice.ImgWebService();
                 DataSet workDS = new DataSet();
                 workDS = svc.getTenRecentImages();
 
-              
+
                 imgData.DataSource = svc.getTenRecentImages();
                 imgData.DataBind();
             }

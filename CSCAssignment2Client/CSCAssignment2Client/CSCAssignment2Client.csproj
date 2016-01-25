@@ -79,15 +79,23 @@
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="DisplayImages.aspx" />
+    <Content Include="ExperimentBlobRetrieval.html" />
+    <Content Include="Home.aspx" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="ImageHandler.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\blobservice\BlobManager.wsdl" />
+    <None Include="Web References\blobservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\globalweather\globalweather.wsdl" />
     <Content Include="Register.aspx" />
     <Content Include="upload.aspx" />
+    <None Include="Web References\blobservice\BlobManager.disco" />
     <Content Include="Web References\globalweather\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -155,6 +163,13 @@
     <Compile Include="DisplayImages.aspx.designer.cs">
       <DependentUpon>DisplayImages.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImageClass.cs" />
     <Compile Include="ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
@@ -186,6 +201,11 @@
     <Compile Include="upload.aspx.designer.cs">
       <DependentUpon>upload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\blobservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\globalweather\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +229,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:12801/BlobManager.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\blobservice\</RelPath>
+      <UpdateFromURL>http://localhost:12801/BlobManager.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CSCAssignment2Client_blobservice_BlobManager</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:12801/ImgWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\imgservice\</RelPath>
