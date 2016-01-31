@@ -30,15 +30,15 @@ namespace CSCAssignment2Client.imgservice {
     [System.Web.Services.WebServiceBindingAttribute(Name="ImgWebServiceSoap", Namespace="http://tempuri.org/")]
     public partial class ImgWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback getTenRecentImagesOperationCompleted;
+        private System.Threading.SendOrPostCallback deleteOneImageRecordOperationCompleted;
         
-        private System.Threading.SendOrPostCallback getUserOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback getImagesByUserIDOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback getImagesByImageIDOperationCompleted;
+        private System.Threading.SendOrPostCallback getImagesByIDOperationCompleted;
         
         private System.Threading.SendOrPostCallback addImageOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getTenRecentImagesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getRecordsByUserOperationCompleted;
         
         private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
         
@@ -81,22 +81,114 @@ namespace CSCAssignment2Client.imgservice {
         }
         
         /// <remarks/>
-        public event getTenRecentImagesCompletedEventHandler getTenRecentImagesCompleted;
+        public event deleteOneImageRecordCompletedEventHandler deleteOneImageRecordCompleted;
         
         /// <remarks/>
-        public event getUserCompletedEventHandler getUserCompleted;
-        
-        /// <remarks/>
-        public event getImagesByUserIDCompletedEventHandler getImagesByUserIDCompleted;
-        
-        /// <remarks/>
-        public event getImagesByImageIDCompletedEventHandler getImagesByImageIDCompleted;
+        public event getImagesByIDCompletedEventHandler getImagesByIDCompleted;
         
         /// <remarks/>
         public event addImageCompletedEventHandler addImageCompleted;
         
         /// <remarks/>
+        public event getTenRecentImagesCompletedEventHandler getTenRecentImagesCompleted;
+        
+        /// <remarks/>
+        public event getRecordsByUserCompletedEventHandler getRecordsByUserCompleted;
+        
+        /// <remarks/>
         public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/deleteOneImageRecord", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int deleteOneImageRecord(int userid) {
+            object[] results = this.Invoke("deleteOneImageRecord", new object[] {
+                        userid});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteOneImageRecordAsync(int userid) {
+            this.deleteOneImageRecordAsync(userid, null);
+        }
+        
+        /// <remarks/>
+        public void deleteOneImageRecordAsync(int userid, object userState) {
+            if ((this.deleteOneImageRecordOperationCompleted == null)) {
+                this.deleteOneImageRecordOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteOneImageRecordOperationCompleted);
+            }
+            this.InvokeAsync("deleteOneImageRecord", new object[] {
+                        userid}, this.deleteOneImageRecordOperationCompleted, userState);
+        }
+        
+        private void OndeleteOneImageRecordOperationCompleted(object arg) {
+            if ((this.deleteOneImageRecordCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteOneImageRecordCompleted(this, new deleteOneImageRecordCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getImagesByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] getImagesByID(int userid) {
+            object[] results = this.Invoke("getImagesByID", new object[] {
+                        userid});
+            return ((byte[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getImagesByIDAsync(int userid) {
+            this.getImagesByIDAsync(userid, null);
+        }
+        
+        /// <remarks/>
+        public void getImagesByIDAsync(int userid, object userState) {
+            if ((this.getImagesByIDOperationCompleted == null)) {
+                this.getImagesByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetImagesByIDOperationCompleted);
+            }
+            this.InvokeAsync("getImagesByID", new object[] {
+                        userid}, this.getImagesByIDOperationCompleted, userState);
+        }
+        
+        private void OngetImagesByIDOperationCompleted(object arg) {
+            if ((this.getImagesByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getImagesByIDCompleted(this, new getImagesByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addImage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int addImage(int inUploadedBy, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] inImageData, string uri) {
+            object[] results = this.Invoke("addImage", new object[] {
+                        inUploadedBy,
+                        inImageData,
+                        uri});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void addImageAsync(int inUploadedBy, byte[] inImageData, string uri) {
+            this.addImageAsync(inUploadedBy, inImageData, uri, null);
+        }
+        
+        /// <remarks/>
+        public void addImageAsync(int inUploadedBy, byte[] inImageData, string uri, object userState) {
+            if ((this.addImageOperationCompleted == null)) {
+                this.addImageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddImageOperationCompleted);
+            }
+            this.InvokeAsync("addImage", new object[] {
+                        inUploadedBy,
+                        inImageData,
+                        uri}, this.addImageOperationCompleted, userState);
+        }
+        
+        private void OnaddImageOperationCompleted(object arg) {
+            if ((this.addImageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addImageCompleted(this, new addImageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getTenRecentImages", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -126,119 +218,31 @@ namespace CSCAssignment2Client.imgservice {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getUser() {
-            object[] results = this.Invoke("getUser", new object[0]);
-            return ((System.Data.DataSet)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void getUserAsync() {
-            this.getUserAsync(null);
-        }
-        
-        /// <remarks/>
-        public void getUserAsync(object userState) {
-            if ((this.getUserOperationCompleted == null)) {
-                this.getUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetUserOperationCompleted);
-            }
-            this.InvokeAsync("getUser", new object[0], this.getUserOperationCompleted, userState);
-        }
-        
-        private void OngetUserOperationCompleted(object arg) {
-            if ((this.getUserCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getUserCompleted(this, new getUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getImagesByUserID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getImagesByUserID(int userid) {
-            object[] results = this.Invoke("getImagesByUserID", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getRecordsByUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet getRecordsByUser(int userid) {
+            object[] results = this.Invoke("getRecordsByUser", new object[] {
                         userid});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void getImagesByUserIDAsync(int userid) {
-            this.getImagesByUserIDAsync(userid, null);
+        public void getRecordsByUserAsync(int userid) {
+            this.getRecordsByUserAsync(userid, null);
         }
         
         /// <remarks/>
-        public void getImagesByUserIDAsync(int userid, object userState) {
-            if ((this.getImagesByUserIDOperationCompleted == null)) {
-                this.getImagesByUserIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetImagesByUserIDOperationCompleted);
+        public void getRecordsByUserAsync(int userid, object userState) {
+            if ((this.getRecordsByUserOperationCompleted == null)) {
+                this.getRecordsByUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetRecordsByUserOperationCompleted);
             }
-            this.InvokeAsync("getImagesByUserID", new object[] {
-                        userid}, this.getImagesByUserIDOperationCompleted, userState);
+            this.InvokeAsync("getRecordsByUser", new object[] {
+                        userid}, this.getRecordsByUserOperationCompleted, userState);
         }
         
-        private void OngetImagesByUserIDOperationCompleted(object arg) {
-            if ((this.getImagesByUserIDCompleted != null)) {
+        private void OngetRecordsByUserOperationCompleted(object arg) {
+            if ((this.getRecordsByUserCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getImagesByUserIDCompleted(this, new getImagesByUserIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getImagesByImageID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] getImagesByImageID(int imgid) {
-            object[] results = this.Invoke("getImagesByImageID", new object[] {
-                        imgid});
-            return ((byte[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void getImagesByImageIDAsync(int imgid) {
-            this.getImagesByImageIDAsync(imgid, null);
-        }
-        
-        /// <remarks/>
-        public void getImagesByImageIDAsync(int imgid, object userState) {
-            if ((this.getImagesByImageIDOperationCompleted == null)) {
-                this.getImagesByImageIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetImagesByImageIDOperationCompleted);
-            }
-            this.InvokeAsync("getImagesByImageID", new object[] {
-                        imgid}, this.getImagesByImageIDOperationCompleted, userState);
-        }
-        
-        private void OngetImagesByImageIDOperationCompleted(object arg) {
-            if ((this.getImagesByImageIDCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getImagesByImageIDCompleted(this, new getImagesByImageIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addImage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int addImage(int inUploadedBy, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] inImageData) {
-            object[] results = this.Invoke("addImage", new object[] {
-                        inUploadedBy,
-                        inImageData});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void addImageAsync(int inUploadedBy, byte[] inImageData) {
-            this.addImageAsync(inUploadedBy, inImageData, null);
-        }
-        
-        /// <remarks/>
-        public void addImageAsync(int inUploadedBy, byte[] inImageData, object userState) {
-            if ((this.addImageOperationCompleted == null)) {
-                this.addImageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddImageOperationCompleted);
-            }
-            this.InvokeAsync("addImage", new object[] {
-                        inUploadedBy,
-                        inImageData}, this.addImageOperationCompleted, userState);
-        }
-        
-        private void OnaddImageOperationCompleted(object arg) {
-            if ((this.addImageCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.addImageCompleted(this, new addImageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.getRecordsByUserCompleted(this, new getRecordsByUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -290,95 +294,43 @@ namespace CSCAssignment2Client.imgservice {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void getTenRecentImagesCompletedEventHandler(object sender, getTenRecentImagesCompletedEventArgs e);
+    public delegate void deleteOneImageRecordCompletedEventHandler(object sender, deleteOneImageRecordCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getTenRecentImagesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class deleteOneImageRecordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal getTenRecentImagesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal deleteOneImageRecordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public System.Data.DataSet Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void getUserCompletedEventHandler(object sender, getUserCompletedEventArgs e);
+    public delegate void getImagesByIDCompletedEventHandler(object sender, getImagesByIDCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class getImagesByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal getUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public System.Data.DataSet Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void getImagesByUserIDCompletedEventHandler(object sender, getImagesByUserIDCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getImagesByUserIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal getImagesByUserIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public System.Data.DataSet Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void getImagesByImageIDCompletedEventHandler(object sender, getImagesByImageIDCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getImagesByImageIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal getImagesByImageIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal getImagesByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -414,6 +366,58 @@ namespace CSCAssignment2Client.imgservice {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void getTenRecentImagesCompletedEventHandler(object sender, getTenRecentImagesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getTenRecentImagesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getTenRecentImagesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void getRecordsByUserCompletedEventHandler(object sender, getRecordsByUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getRecordsByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getRecordsByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }
