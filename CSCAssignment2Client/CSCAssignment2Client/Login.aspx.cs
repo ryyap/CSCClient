@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace CSCAssignment2Client
 {
@@ -23,11 +24,30 @@ namespace CSCAssignment2Client
             bool login = obj.UserLogin(emailText.Text, passwordText.Text);
             if (login == true)
             {
-                Response.Redirect("Default.aspx");
+                FormsAuthenticationTicket tkt;
+                string cookiestr;
+                HttpCookie ck;
+                tkt = new FormsAuthenticationTicket(1, emailText.Text, DateTime.Now,
+          DateTime.Now.AddMinutes(30), chkPersistCookie.Checked, "your custom data");
+                cookiestr = FormsAuthentication.Encrypt(tkt);
+                ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                if (chkPersistCookie.Checked)
+                    ck.Expires = tkt.Expiration;
+                ck.Path = FormsAuthentication.FormsCookiePath;
+                Response.Cookies.Add(ck);
+
+                string strRedirect;
+                strRedirect = Request["ReturnUrl"];
+                if (strRedirect == null)
+                    strRedirect = "Default.aspx";
+                Response.Redirect(strRedirect, true);
+	
+		
             }
             else
             {
-                Label1.Text = "Invalid UserName or Password.";
+                Response.Redirect("Login.aspx", true);
+                Label1.Text = "Invalid UserName or Password. Please Try again.";
             }
         }
 

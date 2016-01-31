@@ -31,6 +31,15 @@ namespace CSCAssignment2Client {
         protected global::System.Web.UI.WebControls.TextBox emailText;
         
         /// <summary>
+        /// vUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vUserName;
+        
+        /// <summary>
         /// passwordText control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,24 @@ namespace CSCAssignment2Client {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordText;
+        
+        /// <summary>
+        /// vUserPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vUserPass;
+        
+        /// <summary>
+        /// chkPersistCookie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkPersistCookie;
         
         /// <summary>
         /// loginButton control.

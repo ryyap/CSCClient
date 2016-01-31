@@ -96,10 +96,10 @@
     <Content Include="Register.aspx" />
     <Content Include="upload.aspx" />
     <None Include="Web References\blobservice\BlobManager.disco" />
-    <Content Include="Web References\globalweather\Reference.map">
+    <None Include="Web References\globalweather\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\imgservice\ImgWebService.wsdl" />
     <None Include="Web References\imgservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -146,7 +146,9 @@
     <None Include="Web References\globalweather\globalweather.disco" />
     <None Include="Web References\registerservice\RegisterWebService.disco" />
     <None Include="Web References\imgservice\ImgWebService.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">

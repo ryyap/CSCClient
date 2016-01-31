@@ -4,7 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <title></title>
+
+  <title>Login - Smiling Image Sharing</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   </head>
@@ -19,7 +21,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CSCAssignment2Client</a>
+        <a class="navbar-brand" href="Default.aspx">CSCAssignment2Client</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -51,17 +53,24 @@
           
           <span ng-show="message"></span>
           <div class="form-group">
-           <label>Username:</label>
+           <label>Email:</label>
          <asp:TextBox ID="emailText" runat="server"></asp:TextBox>
            <!-- <span class="help-block with-errors"></span>-->
+              <ASP:RequiredFieldValidator ControlToValidate="emailText"
+           Display="Static" ErrorMessage="*" runat="server" 
+           ID="vUserName" />
           </div>
 
           <div class="form-group">
            <label>Password:</label>
          <asp:TextBox ID="passwordText"  TextMode="password" runat="server"></asp:TextBox>
             <!--<span class="help-block with-errors"></span>-->
+              <ASP:RequiredFieldValidator ControlToValidate="passwordText"
+          Display="Static" ErrorMessage="*" runat="server" 
+          ID="vUserPass" />
           </div>
-              
+              <br />
+              Remember Me? <ASP:CheckBox id="chkPersistCookie" runat="server" autopostback="false" />
          <asp:Button ID="loginButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="loginButton_Click" />
 
           <asp:Button ID="registerButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Don't have an account? Register Here!" OnClick="registerButton_Click"  />

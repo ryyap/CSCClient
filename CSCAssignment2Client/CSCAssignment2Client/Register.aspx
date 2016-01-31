@@ -4,22 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <title>ST0001 : Java Programming</title>
+  <title>Register - Smiling Image Sharing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+     <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
 
   <body>
-               
-     
-               
   <!--Navbar-->  
   <div class = "navbar navbar-inverse navbar-static-top">
   
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CSCAssignment2Client</a>
+        <a class="navbar-brand" href="Default.aspx">CSCAssignment2Client</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -59,7 +58,7 @@
 
           <div class="form-group">
            <label>Password:</label>
-           <asp:TextBox ID="passwordText" runat="server"></asp:TextBox>
+           <asp:TextBox ID="passwordText" TextMode="password" runat="server"></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
               <div class="form-group">
@@ -73,7 +72,7 @@
               <asp:Calendar ID="dateofbirthCal" runat="server"></asp:Calendar>
             <span class="help-block with-errors"></span>
           </div>
-
+              <div class="g-recaptcha" data-sitekey="6LcAphUTAAAAAOmIaKwqgL5nlKr28c-GUlSascWz"></div>
               
          <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
               <br />

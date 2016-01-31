@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <title>ST0001 : Java Programming</title>
+  <title>Welcome to Smiling Image Sharing!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 
@@ -18,7 +18,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CSCAssignment2Client</a>
+        <a class="navbar-brand" href="#">CSCAssignment2Client</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -31,14 +31,13 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
        <ul class = "nav navbar-nav navbar-right">
              <li><a href = "#">Home</a></li>
-          <li><a href = "Login.aspx">Login</a></li>   
+          <li id="Kappa"><a href = "Login.aspx">Login</a></li>   
         </ul>
         <!--Top Right Navbar End-->
       </div>
       </div>
+          <!-- Navbar Container End -->
     </div>
-    <!-- Navbar Container End -->
-   </div>
    <!--Nav Bar End-->
   
    <div class = "container">
