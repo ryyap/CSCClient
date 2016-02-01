@@ -48,33 +48,27 @@
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
-          
+          <h2> Login</h2>
           <form id="form1" runat="server">
-          
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
           <span ng-show="message"></span>
           <div class="form-group">
            <label>Email:</label>
          <asp:TextBox ID="emailText" runat="server"></asp:TextBox>
            <!-- <span class="help-block with-errors"></span>-->
-              <ASP:RequiredFieldValidator ControlToValidate="emailText"
-           Display="Static" ErrorMessage="*" runat="server" 
-           ID="vUserName" />
           </div>
 
           <div class="form-group">
            <label>Password:</label>
-         <asp:TextBox ID="passwordText"  TextMode="password" runat="server"></asp:TextBox>
+         <asp:TextBox ID="passwordText" runat="server"></asp:TextBox>
             <!--<span class="help-block with-errors"></span>-->
-              <ASP:RequiredFieldValidator ControlToValidate="passwordText"
-          Display="Static" ErrorMessage="*" runat="server" 
-          ID="vUserPass" />
           </div>
               <br />
               Remember Me? <ASP:CheckBox id="chkPersistCookie" runat="server" autopostback="false" />
          <asp:Button ID="loginButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="loginButton_Click" />
 
           <asp:Button ID="registerButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Don't have an account? Register Here!" OnClick="registerButton_Click"  />
-              <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            
          </form></div>
                <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">

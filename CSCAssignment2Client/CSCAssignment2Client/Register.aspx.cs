@@ -12,26 +12,27 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            passwordText.Attributes["type"] = "password";
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             //Goes to Registration Web Service to process registration
             registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
-             bool register=obj.RegisterUser(usernameText.Text, passwordText.Text, emailText.Text, dateofbirthCal.SelectedDate.ToString());
+             bool register=obj.RegisterUser(usernameText.Text, passwordText.Text, dateofbirthCal.SelectedDate.ToString(),emailText.Text);
             if (register==true)
             {
                 Response.Redirect("Login.aspx");
             }
             else
             {
-                Label1.Text = "Registration failed.";
+                usernameText.Text = passwordText.Text = emailText.Text = string.Empty;
+                Label1.Text = "Registration failed as either Username or email has already been used! Please Try again!";
             }
         }
 
         protected void homeButton_Click(object sender, EventArgs e)
-        {
+        { 
             Response.Redirect("Default.aspx");
         }
     }

@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
        <ul class = "nav navbar-nav navbar-right">
              <li><a href = "#">Home</a></li>
-          <li id="Kappa"><a href = "Login.aspx">Login</a></li>   
+          <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login"></asp:Label></a></li>   
         </ul>
         <!--Top Right Navbar End-->
       </div>
@@ -46,17 +46,22 @@
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
           
-         <h2>Welcome to Smiling Image Sharing!</h2>
+            <asp:Label ID="lblWelcome" runat="server" style="position:relative; 
+  left: 32%;
+   bottom:5px; "  Text="Welcome to Smiling Image Sharing!" Font-Names="Roboto" Font-Size="Larger"></asp:Label>
           
-          <form id="form1" role="form"   data-toggle="validator">
+          <form id="form1" role="form" runat="server"  data-toggle="validator">
 
         <!-- Display 5 recent pics -->
         <!-- allow user to upload here too? recent pics -->
-              
-         
+              <br /><br />
+         <asp:Button ID="loginButton" CssClass="btn btn-default" style="position:absolute; 
+   margin-left:-100px;
+   left:50%;
+   width:200px;
+   bottom:5px; " runat="server" Text="Login" OnClick="loginButton_Click" />
 
-          <button type="submit" class="btn btn-default"
-          style="display: block; width: 100%;">Login</button>
+              
 
          </form>
               

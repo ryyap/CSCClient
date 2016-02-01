@@ -14,8 +14,16 @@ namespace CSCAssignment2Client
             bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {
-                
+                //lblWelcome.Text = "Welcome to Smiling Image Sharing!" + Context.User.Identity.Name;
+                lblLogin.Text = "Logout";
+                lblWelcome.Text="Welcome to Smiling Image Sharing!" + HttpContext.Current.Session["UserName"];
             }
+        }
+  
+
+        protected void loginButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

@@ -48,7 +48,7 @@
         <div class = "col-lg-8 col-md-8" >
           <h2>Register User</h2>
           <form id="form1" runat="server">
-          
+           <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
           <span ng-show="message"></span>
           <div class="form-group">
            <label>Username:</label>
@@ -58,7 +58,7 @@
 
           <div class="form-group">
            <label>Password:</label>
-           <asp:TextBox ID="passwordText" TextMode="password" runat="server"></asp:TextBox>
+           <asp:TextBox ID="passwordText"  runat="server"></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
               <div class="form-group">
@@ -76,7 +76,7 @@
               
          <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
               <br />
-              <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+             
                 
           <asp:Button ID="homeButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Return to Home!" OnClick="homeButton_Click"  />
        </form>

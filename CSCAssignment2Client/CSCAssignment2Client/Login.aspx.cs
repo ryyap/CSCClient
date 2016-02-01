@@ -12,7 +12,7 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            passwordText.Attributes["type"] = "password";
         }
 
        
@@ -24,6 +24,7 @@ namespace CSCAssignment2Client
             bool login = obj.UserLogin(emailText.Text, passwordText.Text);
             if (login == true)
             {
+                Session["UserName"] = emailText.Text;
                 FormsAuthenticationTicket tkt;
                 string cookiestr;
                 HttpCookie ck;
@@ -46,7 +47,8 @@ namespace CSCAssignment2Client
             }
             else
             {
-                Response.Redirect("Login.aspx", true);
+                emailText.Text = string.Empty;
+                passwordText.Text = string.Empty;
                 Label1.Text = "Invalid UserName or Password. Please Try again.";
             }
         }
