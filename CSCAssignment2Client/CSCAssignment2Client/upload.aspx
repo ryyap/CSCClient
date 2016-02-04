@@ -17,7 +17,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CSCAssignment2Client</a>
+          <a class="navbar-brand" href="Default.aspx"> Smiling Image Sharing</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -30,7 +30,11 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
-          <li><a href = "Login.aspx">Login</a></li>
+            
+        <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
+            <li><a href = "Profile.aspx"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label></a></li>   
+             <li><a href = "DisplayImages.aspx"><asp:Label ID="lblGallery" runat="server" Text="Your Images" Visible="false"></asp:Label></a></li>      
+          <li><a href = "Logout.aspx"><asp:Label ID="lblLogout" runat="server" Text="Logout" Visible="false"></asp:Label></a></li>   
           
         </ul>
         <!--Top Right Navbar End-->

@@ -11,7 +11,25 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == true)
+            {
+                lblUser.Visible = true;
+               lblUser.Text=Context.User.Identity.Name;
+                lblLogin.Visible = false;
+                lblGallery.Visible = true;
+                lblLogout.Visible = true;
+            
 
+            }
+            else
+            {
+                lblUser.Text = "";
+                lblUser.Visible = false;
+                lblLogin.Visible = true;
+                lblLogout.Visible = false;
+                lblGallery.Visible = false;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

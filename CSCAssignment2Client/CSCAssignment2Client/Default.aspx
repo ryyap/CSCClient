@@ -18,7 +18,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">CSCAssignment2Client</a>
+        <a class="navbar-brand" href="Default.aspx"> Smiling Image Sharing</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -31,7 +31,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
        <ul class = "nav navbar-nav navbar-right">
              <li><a href = "#">Home</a></li>
-          <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login"></asp:Label></a></li>   
+            
+          <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
+     <li><a href = "Profile.aspx"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label></a></li>   
+             <li><a href = "DisplayImages.aspx"><asp:Label ID="lblGallery" runat="server" Text="Your Images" Visible="false"></asp:Label></a></li>      
+          <li><a href = "Logout.aspx"><asp:Label ID="lblLogout" runat="server" Text="Logout" Visible="false"></asp:Label></a></li>   
+          
         </ul>
         <!--Top Right Navbar End-->
       </div>
@@ -61,7 +66,11 @@
    width:200px;
    bottom:5px; " runat="server" Text="Login" OnClick="loginButton_Click" />
 
-              
+              <asp:Button ID="uploadButton" CssClass="btn btn-default" style="position:absolute; 
+   margin-left:-100px;
+   left:50%;
+   width:200px;
+   bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
          </form>
               

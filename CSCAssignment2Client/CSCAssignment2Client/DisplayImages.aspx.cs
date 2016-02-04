@@ -15,7 +15,7 @@ namespace CSCAssignment2Client
         {
             if (Page.IsPostBack == false)
             {
-                int userID = 1;
+                int userID = 6;
                 //userID = Int32.Parse(Request.QueryString["userid"]);
                 imgservice.ImgWebService svc = new imgservice.ImgWebService();
                 DataSet workDS = new DataSet();
@@ -23,6 +23,25 @@ namespace CSCAssignment2Client
 
                 imgData.DataSource = svc.getRecordsByUser(userID);
                 imgData.DataBind();
+            }
+            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == true)
+            {
+                lblUser.Visible = true;
+                lblUser.Text = Context.User.Identity.Name;
+                lblLogin.Visible = false;
+                lblGallery.Visible = true;
+                lblLogout.Visible = true;
+
+
+            }
+            else
+            {
+                lblUser.Text = "";
+                lblUser.Visible = false;
+                lblLogin.Visible = true;
+                lblLogout.Visible = false;
+                lblGallery.Visible = false;
             }
         }
 
@@ -68,6 +87,11 @@ namespace CSCAssignment2Client
             }
             {
             }
+        }
+
+        protected void uploadButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("upload.aspx");
         }
     }
 }

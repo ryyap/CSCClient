@@ -14,7 +14,7 @@ namespace CSCAssignment2Client
         {
             if (!IsPostBack)
             {
-                int userID = 1;
+                int userID = 6;
                 profileservice.UserProfileWebService svc = new profileservice.UserProfileWebService();
                 DataSet workDS = new DataSet();
                 workDS = svc.getUserProfile(userID);
@@ -23,11 +23,30 @@ namespace CSCAssignment2Client
                 dobText.Text = workDS.Tables[0].Rows[0]["DateOfBirth"].ToString();
                 emailText.Text = workDS.Tables[0].Rows[0]["Email"].ToString();
             }
+            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == true)
+            {
+                lblUser.Visible = true;
+                lblUser.Text = Context.User.Identity.Name;
+                lblLogin.Visible = false;
+                lblGallery.Visible = true;
+                lblLogout.Visible = true;
+
+
+            }
+            else
+            {
+                lblUser.Text = "";
+                lblUser.Visible = false;
+                lblLogin.Visible = true;
+                lblLogout.Visible = false;
+                lblGallery.Visible = false;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int userID = 1;
+            int userID = 6;
             int count;
 
             string inUser;

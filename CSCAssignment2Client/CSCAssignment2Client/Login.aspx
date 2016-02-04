@@ -12,7 +12,7 @@
   </head>
 
   <body>
-                        <form id="form1" runat="server"> 
+                    
      
                
   <!--Navbar-->  
@@ -21,7 +21,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="Default.aspx">CSCAssignment2Client</a>
+              <a class="navbar-brand" href="Default.aspx"> Smiling Image Sharing</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -49,7 +49,7 @@
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
           <h2> Login</h2>
-
+                <form id="form1" runat="server"> 
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
           <span ng-show="message"></span>
           <div class="form-group">
@@ -68,7 +68,7 @@
          <asp:Button ID="loginButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Login" OnClick="loginButton_Click" />
 
           <asp:Button ID="registerButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Don't have an account? Register Here!" OnClick="registerButton_Click"  />
-            
+            </form>
          </div>
                <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
@@ -77,7 +77,7 @@
         </div>
         
       </div>
- </form>
+
   
     <!-- JQuery -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
