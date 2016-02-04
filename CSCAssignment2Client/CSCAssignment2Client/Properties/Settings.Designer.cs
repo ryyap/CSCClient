@@ -62,5 +62,15 @@ namespace CSCAssignment2Client.Properties {
                 return ((string)(this["CSCAssignment2Client_blobservice_BlobManager"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:12801/UserProfileWebService.asmx")]
+        public string CSCAssignment2Client_profileservice_UserProfileWebService {
+            get {
+                return ((string)(this["CSCAssignment2Client_profileservice_UserProfileWebService"]));
+            }
+        }
     }
 }

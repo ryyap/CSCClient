@@ -40,8 +40,9 @@ namespace CSCAssignment2Client
                 string strRedirect;
                 strRedirect = Request["ReturnUrl"];
                 if (strRedirect == null)
-                    strRedirect = "Default.aspx";
+                    strRedirect = "DisplayImages.aspx";
                 Response.Redirect(strRedirect, true);
+
 	
 		
             }

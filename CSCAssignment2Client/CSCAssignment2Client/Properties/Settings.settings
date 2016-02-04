@@ -14,5 +14,8 @@
     <Setting Name="CSCAssignment2Client_blobservice_BlobManager" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:12801/BlobManager.asmx</Value>
     </Setting>
+    <Setting Name="CSCAssignment2Client_profileservice_UserProfileWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:12801/UserProfileWebService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
