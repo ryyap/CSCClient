@@ -8,4 +8,3 @@ C:\Users\Haris\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\bin\C
 C:\Users\Haris\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\bin\CSCAssignment2Client.pdb
 C:\Users\Haris\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.dll
 C:\Users\Haris\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.pdb
-C:\Users\R Y Yap\Desktop\CSCClient\CSCAssignment2Client\CSCAssignment2Client\obj\Debug\CSCAssignment2Client.csprojResolveAssemblyReference.cache

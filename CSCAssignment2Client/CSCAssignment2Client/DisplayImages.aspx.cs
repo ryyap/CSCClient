@@ -15,7 +15,9 @@ namespace CSCAssignment2Client
         {
             if (Page.IsPostBack == false)
             {
-                int userID = 6;
+                string id = "";
+                id = (string)(Session["ID"]);
+                int userID = Int32.Parse(id);
                 //userID = Int32.Parse(Request.QueryString["userid"]);
                 imgservice.ImgWebService svc = new imgservice.ImgWebService();
                 DataSet workDS = new DataSet();

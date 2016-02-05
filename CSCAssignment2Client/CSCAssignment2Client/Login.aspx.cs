@@ -19,6 +19,8 @@ namespace CSCAssignment2Client
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
+            string id; 
+
             //Goes to Registration Web Service to process registration
             registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
             bool login = obj.UserLogin(emailText.Text, passwordText.Text);
@@ -38,13 +40,21 @@ namespace CSCAssignment2Client
                 Response.Cookies.Add(ck);
 
                 string strRedirect;
+
+                Session["ID"] = obj.getUserID(emailText.Text, passwordText.Text);
+
                 strRedirect = Request["ReturnUrl"];
                 if (strRedirect == null)
                     strRedirect = "DisplayImages.aspx";
                 Response.Redirect(strRedirect, true);
+                
 
-	
-		
+                /*
+                id = (string)(Session["ID"]);
+
+                string script = "<script type=\"text/javascript\">alert('" + id + "');</script>";
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", script);
+                 * */
             }
             else
             {

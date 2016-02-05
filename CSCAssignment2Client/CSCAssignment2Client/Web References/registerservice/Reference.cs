@@ -33,6 +33,8 @@ namespace CSCAssignment2Client.registerservice {
         
         private System.Threading.SendOrPostCallback UserLoginOperationCompleted;
         
+        private System.Threading.SendOrPostCallback getUserIDOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace CSCAssignment2Client.registerservice {
         
         /// <remarks/>
         public event UserLoginCompletedEventHandler UserLoginCompleted;
+        
+        /// <remarks/>
+        public event getUserIDCompletedEventHandler getUserIDCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -140,6 +145,37 @@ namespace CSCAssignment2Client.registerservice {
             if ((this.UserLoginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UserLoginCompleted(this, new UserLoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getUserID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getUserID(string email, string password) {
+            object[] results = this.Invoke("getUserID", new object[] {
+                        email,
+                        password});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getUserIDAsync(string email, string password) {
+            this.getUserIDAsync(email, password, null);
+        }
+        
+        /// <remarks/>
+        public void getUserIDAsync(string email, string password, object userState) {
+            if ((this.getUserIDOperationCompleted == null)) {
+                this.getUserIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetUserIDOperationCompleted);
+            }
+            this.InvokeAsync("getUserID", new object[] {
+                        email,
+                        password}, this.getUserIDOperationCompleted, userState);
+        }
+        
+        private void OngetUserIDOperationCompleted(object arg) {
+            if ((this.getUserIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getUserIDCompleted(this, new getUserIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -210,6 +246,32 @@ namespace CSCAssignment2Client.registerservice {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    public delegate void getUserIDCompletedEventHandler(object sender, getUserIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getUserIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getUserIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
