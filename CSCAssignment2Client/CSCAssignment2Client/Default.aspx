@@ -80,6 +80,8 @@
    bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
                           <br /> <br />
+               <div id="resultContainer">fk</div>
+                    <br /> <br />
                     <div id="resultBox"></div>
         
          </form>
@@ -119,7 +121,84 @@
                 }
 
             })
+
+           
+
         });
+
+        var resultContainer = $('#resultContainer');
+        var output = '';
+
+        $(document).ready(function () {
+            GetLocalWeather();
+        });
+
+        function GetLocalWeather(e) {
+            var country = "Singapore";
+
+            var localWeatherInput = {
+                query: country,
+                format: 'JSON',
+                num_of_days: '2',
+                date: '',
+                fx: '',
+                cc: '',
+                includelocation: '',
+                show_comments: '',
+                callback: 'LocalWeatherCallback'
+            };
+            JSONP_LocalWeather(localWeatherInput);
+            e.preventDefault();
+        }
+        function LocalWeatherCallback(localWeather) {
+
+            output = "";
+            output += "Current Weather Condition is : "
+            output += "<br/> Cloud Cover: " + localWeather.data.current_condition[0].cloudcover;
+            output += "<br/> Humidity: " + localWeather.data.current_condition[0].humidity;
+            output += "<br/> Temp C: " + localWeather.data.current_condition[0].temp_C;
+            output += "<br/> Visibility: " + localWeather.data.current_condition[0].weatherDesc[0].value;
+            output += "<br/> Observation Time: " + localWeather.data.current_condition[0].observation_time;
+            output += "<br/> Pressue: " + localWeather.data.current_condition[0].pressure;
+
+
+
+
+
+            resultContainer.empty();
+            resultContainer.html(output);
+
+        }
+
+        function JSONP_LocalWeather(input) {
+            var _FreeApiBaseURL = 'http://api.worldweatheronline.com/free/v2/';
+            /*
+                Please change the FreeAPIKey to your own.
+                These keys have been provided for testing only.
+                If you don't have one, then register now: http://developer.worldweatheronline.com/member/register
+            */
+            var _FreeApiKey = 'd8987b0ad57f6441eba580b096508';
+            var url = _FreeApiBaseURL + 'weather.ashx?q=' + input.query + '&format=' + input.format + '&extra=' + input.extra + '&num_of_days=' + input.num_of_days + '&date=' + input.date + '&fx=' + input.fx + '&cc=' + input.cc + '&includelocation=' + input.includelocation + '&show_comments=' + input.show_comments + '&key=' + _FreeApiKey;
+
+            jsonP(url, input.callback);
+        }
+
+        function jsonP(url, callback) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                async: false,
+                contentType: "application/json",
+                jsonpCallback: callback,
+                dataType: 'jsonp',
+                success: function (json) {
+                    console.dir('success');
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
     </script>
                
   </body>
