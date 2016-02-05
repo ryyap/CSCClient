@@ -18,10 +18,13 @@ namespace CSCAssignment2Client
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             //Goes to Registration Web Service to process registration
+
             registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
              bool register=obj.RegisterUser(usernameText.Text, passwordText.Text, dateofbirthCal.SelectedDate.ToString(),emailText.Text);
             if (register==true)
             {
+                string id = obj.getUserID(emailText.Text, passwordText.Text);
+                Session["ID"] = id;
                 Response.Redirect("Login.aspx");
             }
             else

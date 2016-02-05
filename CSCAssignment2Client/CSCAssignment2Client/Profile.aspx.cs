@@ -14,7 +14,10 @@ namespace CSCAssignment2Client
         {
             if (!IsPostBack)
             {
-                int userID = 6;
+                string id ="";
+                id= (string)(Session["ID"]);
+
+                int userID = Int32.Parse(id);
                 profileservice.UserProfileWebService svc = new profileservice.UserProfileWebService();
                 DataSet workDS = new DataSet();
                 workDS = svc.getUserProfile(userID);
