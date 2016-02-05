@@ -80,7 +80,6 @@
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="DisplayImages.aspx" />
-    <Content Include="Email.aspx" />
     <Content Include="ExperimentBlobRetrieval.html" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -188,13 +187,6 @@
     </Compile>
     <Compile Include="DisplayImages.aspx.designer.cs">
       <DependentUpon>DisplayImages.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Email.aspx.cs">
-      <DependentUpon>Email.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Email.aspx.designer.cs">
-      <DependentUpon>Email.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

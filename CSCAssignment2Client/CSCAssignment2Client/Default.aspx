@@ -28,7 +28,7 @@
       </div>
 
    <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
     <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
@@ -55,6 +55,8 @@
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
+
+            
           
             <asp:Label ID="lblWelcome" runat="server" style="position:relative; 
   left: 32%;
@@ -65,20 +67,23 @@
         <!-- Display 5 recent pics -->
         <!-- allow user to upload here too? recent pics -->
               <br /><br />
-         <asp:Button ID="loginButton" CssClass="btn btn-default" style="position:absolute; 
+         <asp:Button ID="loginButton" CssClass="btn btn-default" style="position:relative; 
    margin-left:-100px;
    left:50%;
    width:200px;
    bottom:5px; " runat="server" Text="Login" OnClick="loginButton_Click" />
 
-              <asp:Button ID="uploadButton" CssClass="btn btn-default" style="position:absolute; 
+              <asp:Button ID="uploadButton" CssClass="btn btn-default" style="position:relative; 
    margin-left:-100px;
    left:50%;
    width:200px;
    bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
+                          <br /> <br />
+                    <div id="resultBox"></div>
+        
          </form>
-              
+
                                                 
          </div>       
          <!-- Content End -->                
@@ -94,7 +99,28 @@
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
 
-      
+       <script>
+        window.$resultBoxElement = $('#resultBox');
+        $(document).ready(function () {
+            handler = $.ajax({
+                async: true,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "POST",
+                url: "http://localhost:12801/BlobManager.asmx/GetBlobList"
+            });
+            handler.done(function (data) {
+                var imageList = data.d;
+                for (index = 0; index < imageList.length; index++) {
+                    var $imageElement = $('<img></img>', { src: imageList[index].ImageURI });
+                    $imageElement.attr('width', '250px');
+                    $imageElement.attr('height', '150px');
+                    window.$resultBoxElement.append($imageElement);
+                }
+
+            })
+        });
+    </script>
                
   </body>
 </html>

@@ -25,12 +25,14 @@ namespace CSCAssignment2Client
 
             {   //Login user and set session id
                 emailservice.EmailWebService em = new emailservice.EmailWebService();
-                em.SendActivationEmail();
+               
 
             
                 string id = obj.getUserID(emailText.Text, passwordText.Text);
                 Session["ID"] = id;
 
+                int intID = Int32.Parse(id);
+                em.SendActivationEmail(intID,emailText.Text,usernameText.Text);
                 Response.Redirect("Login.aspx");
                
             }
