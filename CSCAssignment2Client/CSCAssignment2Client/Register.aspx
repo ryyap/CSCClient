@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-     <script src='https://www.google.com/recaptcha/api.js'></script>
+     
   </head>
 
   <body>
@@ -69,11 +69,13 @@
 
           <div class="form-group">
            <label>Date Of Birth:</label>
-              <asp:Calendar ID="dateofbirthCal" runat="server" required></asp:Calendar>
+              <asp:TextBox ID="dateofBirth"  class="datefield" data-val="true" data-val-required="Date is required" 
+       type="date" runat="server" required></asp:TextBox>
+            
             <span class="help-block with-errors"></span>
           </div>
-              <div class="g-recaptcha" data-sitekey="6LcAphUTAAAAAOmIaKwqgL5nlKr28c-GUlSascWz"></div>
-              
+             <div class="g-recaptcha" id="recaptcha" style="margin-left: 90px;"  data-sitekey="6LcAphUTAAAAAOmIaKwqgL5nlKr28c-GUlSascWz"></div>
+              <span id="captcha" style="margin-left:100px;color:red" />
          <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
               <br />
              
@@ -100,7 +102,22 @@
       
       <!-- validation -->
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
-      
+     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+       <script>
+          $(document).ready(function(){
+              var v = g-recaptcha.getResponse();
+              if (v.length == 0) {
+                  document.getElementById('recaptcha').innerHTML = "You can't leave Captcha Code empty";
+                  return false;
+              }
+              if (v.length != 0) {
+                  document.getElementById('recaptcha').innerHTML = "Captcha completed";
+                  return true;
+              }
+          });
+          
+
+      </script>
                
   </body>
 </html>

@@ -18,30 +18,34 @@ namespace CSCAssignment2Client
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             //Goes to Registration Web Service to process registration
+           
 
-            registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
-             bool register=obj.RegisterUser(usernameText.Text, passwordText.Text, dateofbirthCal.SelectedDate.ToString(),emailText.Text);
-            if (register==true)
+       
+                //Valid Request
 
-            {   //Login user and set session id
-                emailservice.EmailWebService em = new emailservice.EmailWebService();
-               
+                registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
+                bool register = obj.RegisterUser(usernameText.Text, passwordText.Text,dateofBirth.Text, emailText.Text);
+                if (register == true)
+                {   
+                    emailservice.EmailWebService em = new emailservice.EmailWebService();
 
-            
-                string id = obj.getUserID(emailText.Text, passwordText.Text);
-                Session["ID"] = id;
 
-                int intID = Int32.Parse(id);
-                em.SendActivationEmail(intID,emailText.Text,usernameText.Text);
-                Response.Redirect("Login.aspx");
-               
+
+                    string id = obj.getUserID(emailText.Text, passwordText.Text);
+                    Session["ID"] = id;
+
+                    int intID = int.Parse(id);
+                    em.SendActivationEmail(intID, emailText.Text, usernameText.Text);
+                    Label1.Text = "Activation email has been sent! Please go to your email account to activate it!";
+
+                }
+                else
+                {
+                    dateofBirth.Text=usernameText.Text = passwordText.Text = emailText.Text = string.Empty;
+                    Label1.Text = "Registration failed as either Username or email has already been used! Please Try again!";
+                }
             }
-            else
-            {
-                usernameText.Text = passwordText.Text = emailText.Text = string.Empty;
-                Label1.Text = "Registration failed as either Username or email has already been used! Please Try again!";
-            }
-        }
+        
 
         protected void homeButton_Click(object sender, EventArgs e)
         { 
