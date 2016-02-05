@@ -80,6 +80,7 @@
     <Content Include="bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="DisplayImages.aspx" />
+    <Content Include="Email.aspx" />
     <Content Include="ExperimentBlobRetrieval.html" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -95,6 +96,11 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\emailservice\EmailWebService.wsdl" />
+    <Content Include="Web References\emailservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web References\globalweather\globalweather.wsdl" />
     <Content Include="Register.aspx" />
     <Content Include="upload.aspx" />
@@ -108,10 +114,10 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Web References\profileservice\Reference.map">
+    <None Include="Web References\profileservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\profileservice\UserProfileWebService.wsdl" />
     <None Include="Web References\registerservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -155,6 +161,7 @@
     <None Include="Web References\registerservice\RegisterWebService.disco" />
     <None Include="Web References\imgservice\ImgWebService.disco" />
     <None Include="Web References\profileservice\UserProfileWebService.disco" />
+    <None Include="Web References\emailservice\EmailWebService.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -180,6 +187,13 @@
     </Compile>
     <Compile Include="DisplayImages.aspx.designer.cs">
       <DependentUpon>DisplayImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Email.aspx.cs">
+      <DependentUpon>Email.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Email.aspx.designer.cs">
+      <DependentUpon>Email.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -234,6 +248,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\emailservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\globalweather\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,6 +291,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CSCAssignment2Client_blobservice_BlobManager</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:12801/EmailWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\emailservice\</RelPath>
+      <UpdateFromURL>http://localhost:12801/EmailWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CSCAssignment2Client_emailservice_EmailWebService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:12801/ImgWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>

@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" data-toggle="validator" runat="server">
     <!--Navbar-->  
   <div class = "navbar navbar-inverse navbar-static-top">
   
@@ -52,20 +52,20 @@
 
           <div class="form-group">
            <label>Old Password:</label>
-         <asp:TextBox ID="oldPasswordText" runat="server"></asp:TextBox>
-            <!--<span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="oldPasswordText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
          <div class="form-group">
            <label>New Password:</label>
-         <asp:TextBox ID="newPasswordText" runat="server"></asp:TextBox>
-            <!--<span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="newPasswordText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
          <div class="form-group">
            <label>Re-Type Password:</label>
-         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <!--<span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="TextBox2" runat="server" required data-match="#newPasswordText"></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
               <br />
@@ -87,5 +87,8 @@
 
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+    <!-- validation -->
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
 </body>
 </html>

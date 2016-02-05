@@ -1,17 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="CSCAssignment2Client.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Email.aspx.cs" Inherits="CSCAssignment2Client.Email" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <title>Register - Smiling Image Sharing</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<head runat="server">
+    <title>Gmail</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-     <script src='https://www.google.com/recaptcha/api.js'></script>
-  </head>
+</head>
+<body>
+    <form id="form1" data-toggle="validator" runat="server">
 
-  <body>
   <!--Navbar-->  
   <div class = "navbar navbar-inverse navbar-static-top">
   
@@ -32,7 +31,6 @@
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
           <li><a href = "Login.aspx">Login</a></li>
-          
         </ul>
         <!--Top Right Navbar End-->
       </div>
@@ -46,61 +44,62 @@
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
-          <h2>Register User</h2>
-          <form id="form1" data-toggle="validator" runat="server">
-           <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+          <h2>Gmail</h2>
+
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
           <span ></span>
+
           <div class="form-group">
-           <label>Username:</label>
-              <asp:TextBox ID="usernameText" runat="server" required></asp:TextBox>
+           <label>Gmail:</label>
+         <asp:TextBox ID="gmailText" runat="server" required></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
-           <label>Password:</label>
-           <asp:TextBox ID="passwordText"  runat="server" required></asp:TextBox>
-            <span class="help-block with-errors"></span>
-          </div>
-              <div class="form-group">
-           <label>Email:</label>
-           <asp:TextBox ID="emailText" runat="server" required></asp:TextBox>
+           <label>Gmail Password:</label>
+         <asp:TextBox ID="passwordText" runat="server" required></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
-           <label>Date Of Birth:</label>
-              <asp:Calendar ID="dateofbirthCal" runat="server" required></asp:Calendar>
+           <label>Receiver Email:</label>
+         <asp:TextBox ID="receiverText" runat="server" required></asp:TextBox>
             <span class="help-block with-errors"></span>
           </div>
-              <div class="g-recaptcha" data-sitekey="6LcAphUTAAAAAOmIaKwqgL5nlKr28c-GUlSascWz"></div>
-              
-         <asp:Button ID="RegisterButton" CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Register" OnClick="RegisterButton_Click" />
+
+          <div class="form-group">
+           <label>Subject:</label>
+         <asp:TextBox ID="subjectText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
+          </div>
+
+          <div class="form-group">
+           <label>Body:</label>
+         <asp:TextBox ID="bodyText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
+          </div>
               <br />
-             
-                
-          <asp:Button ID="homeButton"  CssClass="btn btn-default" style="display: block; width: 100%;" runat="server" Text="Return to Home!" OnClick="homeButton_Click"  />
-       </form>
 
-        </div>
-            <!-- Content End -->                
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+             
+            
+         </div>
+               <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              
           </div>
         </div>
         
       </div>
-
-  
+    </form>
      <!-- JQuery -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-               
-      
-      <!-- validation -->
+
+    <!-- validation -->
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
-      
-               
-  </body>
+    </form>
+</body>
 </html>

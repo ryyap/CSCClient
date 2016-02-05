@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1"  data-toggle="validator" runat="server">
   <!--Navbar-->  
   <div class = "navbar navbar-inverse navbar-static-top">
   
@@ -50,26 +50,26 @@
 
           <div class="form-group">
            <label>Username:</label>
-         <asp:TextBox ID="usernameText" runat="server"></asp:TextBox>
-           <!-- <span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="usernameText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
            <label>Date Of Birth:</label>
-         <asp:TextBox ID="dobText" runat="server"></asp:TextBox>
-           <!-- <span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="dobText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
            <label>Email:</label>
-         <asp:TextBox ID="emailText" runat="server"></asp:TextBox>
-           <!-- <span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="emailText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
 
           <div class="form-group">
            <label>Password:</label>
-         <asp:TextBox ID="passwordText" runat="server"></asp:TextBox>
-            <!--<span class="help-block with-errors"></span>-->
+         <asp:TextBox ID="passwordText" runat="server" required></asp:TextBox>
+            <span class="help-block with-errors"></span>
           </div>
               <br />
 
@@ -90,5 +90,8 @@
 
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+    <!-- validation -->
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
 </body>
 </html>

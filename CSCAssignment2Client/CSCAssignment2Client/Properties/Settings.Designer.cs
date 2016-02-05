@@ -72,5 +72,15 @@ namespace CSCAssignment2Client.Properties {
                 return ((string)(this["CSCAssignment2Client_profileservice_UserProfileWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:12801/EmailWebService.asmx")]
+        public string CSCAssignment2Client_emailservice_EmailWebService {
+            get {
+                return ((string)(this["CSCAssignment2Client_emailservice_EmailWebService"]));
+            }
+        }
     }
 }
