@@ -32,7 +32,8 @@ namespace CSCAssignment2Client
                 lblLogin.Visible = false;
                 lblGallery.Visible = true;
                 lblLogout.Visible = true;
-
+                lblChangePassword.Visible = true;
+                lblProfile.Visible = true;
 
             }
             else
@@ -42,6 +43,8 @@ namespace CSCAssignment2Client
                 lblLogin.Visible = true;
                 lblLogout.Visible = false;
                 lblGallery.Visible = false;
+                lblChangePassword.Visible = false;
+                lblProfile.Visible = false;
             }
         }
 

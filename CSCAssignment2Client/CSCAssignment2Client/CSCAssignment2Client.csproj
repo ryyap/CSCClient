@@ -98,10 +98,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\emailservice\EmailWebService.wsdl" />
-    <Content Include="Web References\emailservice\Reference.map">
+    <None Include="Web References\emailservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\globalweather\globalweather.wsdl" />
     <Content Include="Register.aspx" />
     <Content Include="upload.aspx" />

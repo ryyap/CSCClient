@@ -23,6 +23,7 @@ namespace CSCAssignment2Client
                 dobText.Text = workDS.Tables[0].Rows[0]["DateOfBirth"].ToString();
                 emailText.Text = workDS.Tables[0].Rows[0]["Email"].ToString();
             }
+
             bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {
@@ -31,7 +32,8 @@ namespace CSCAssignment2Client
                 lblLogin.Visible = false;
                 lblGallery.Visible = true;
                 lblLogout.Visible = true;
-
+                lblChangePassword.Visible = true;
+                lblProfile.Visible = true;
 
             }
             else
@@ -41,6 +43,8 @@ namespace CSCAssignment2Client
                 lblLogin.Visible = true;
                 lblLogout.Visible = false;
                 lblGallery.Visible = false;
+                lblChangePassword.Visible = false;
+                lblProfile.Visible = false;
             }
         }
 
@@ -70,6 +74,11 @@ namespace CSCAssignment2Client
             }
             passwordText.Text="";
 
+        }
+
+        protected void changePasswordButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
         }
     }
 }

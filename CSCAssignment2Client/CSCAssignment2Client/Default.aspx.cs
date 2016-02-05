@@ -11,25 +11,6 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           /* bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            if (val1 == true)
-            {
-                //lblWelcome.Text = "Welcome to Smiling Image Sharing!" + Context.User.Identity.Name;
-                lblLogin.Visible = false;
-                lblLogout.Visible = true;
-                lblWelcome.Text="Welcome to Smiling Image Sharing," + HttpContext.Current.Session["UserName"]+"!";
-                loginButton.Visible = false;
-                uploadButton.Visible = true;
-                
-            }
-            else
-            {
-                lblLogin.Visible = true;
-                lblLogout.Visible = false;
-                lblWelcome.Text = "Welcome to Smiling Image Sharing !";
-                loginButton.Visible = true;
-                uploadButton.Visible = false;
-            }*/
             bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {
@@ -41,8 +22,9 @@ namespace CSCAssignment2Client
                 lblLogout.Visible = true;
                 loginButton.Visible = false;
                 uploadButton.Visible = true;
-
-
+                lblChangePassword.Visible = true;
+                lblProfile.Visible = true;
+               
             }
             else
             {
@@ -54,6 +36,10 @@ namespace CSCAssignment2Client
                 lblWelcome.Text = "Welcome to Smiling Image Sharing !";
                 loginButton.Visible = true;
                 uploadButton.Visible = false;
+                lblChangePassword.Visible = true;
+                lblProfile.Visible = true;
+                lblChangePassword.Visible = false;
+                lblProfile.Visible = false;
             }
         }
   

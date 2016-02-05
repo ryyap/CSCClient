@@ -29,7 +29,17 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
-          <li><a href = "Login.aspx">Login</a></li>
+    <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
+            <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="Profile.aspx"><asp:Label ID="lblProfile" runat="server" Text="Profile" Visible="false"></asp:Label></a></li>
+          <li><a href="ChangePassword.aspx"><asp:Label ID="lblChangePassword" runat="server" Text="Change Password" Visible="false"></asp:Label></a></li>
+        </ul>
+      </li>
+             <li><a href = "DisplayImages.aspx"><asp:Label ID="lblGallery" runat="server" Text="Your Images" Visible="false"></asp:Label></a></li>      
+          <li><a href = "Logout.aspx"><asp:Label ID="lblLogout" runat="server" Text="Logout" Visible="false"></asp:Label></a></li>   
         </ul>
         <!--Top Right Navbar End-->
       </div>
@@ -38,12 +48,13 @@
    </div>
    <!--Nav Bar End-->
   
+  
    <div class = "container">
       <div class = "row">
         <div class = "col-lg-2 col-md-2"> </div>
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
-          <h2>Profile</h2>
+          <h2>Change Password</h2>
 
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
           <span ></span>
@@ -70,7 +81,7 @@
 
               <br />
 
-            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"  />
+            <asp:Button ID="Button1" runat="server" Text="Change Password" OnClick="Button1_Click"  />
              
             
          </div>

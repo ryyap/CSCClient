@@ -25,12 +25,19 @@
         </button>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
+         <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
     <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
-            <li><a href = "Profile.aspx"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label></a></li>   
+            <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="Profile.aspx"><asp:Label ID="lblProfile" runat="server" Text="Profile" Visible="false"></asp:Label></a></li>
+          <li><a href="ChangePassword.aspx"><asp:Label ID="lblChangePassword" runat="server" Text="Change Password" Visible="false"></asp:Label></a></li>
+        </ul>
+      </li>
              <li><a href = "DisplayImages.aspx"><asp:Label ID="lblGallery" runat="server" Text="Your Images" Visible="false"></asp:Label></a></li>      
           <li><a href = "Logout.aspx"><asp:Label ID="lblLogout" runat="server" Text="Logout" Visible="false"></asp:Label></a></li>   
         </ul>
@@ -40,7 +47,6 @@
     <!-- Navbar Container End -->
    </div>
    <!--Nav Bar End-->
-  
    <div class = "container">
       <div class = "row">
         <div class = "col-lg-2 col-md-2"> </div>
@@ -77,7 +83,7 @@
               <br />
 
             <asp:Button ID="Button1" runat="server" Text="Confirm Changes" OnClick="Button1_Click" />
-             
+           
             
          </div>
                <!-- Content End -->                

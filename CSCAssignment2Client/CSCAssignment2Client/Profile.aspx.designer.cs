@@ -40,6 +40,24 @@ namespace CSCAssignment2Client {
         protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
+        /// lblProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProfile;
+        
+        /// <summary>
+        /// lblChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChangePassword;
+        
+        /// <summary>
         /// lblGallery control.
         /// </summary>
         /// <remarks>

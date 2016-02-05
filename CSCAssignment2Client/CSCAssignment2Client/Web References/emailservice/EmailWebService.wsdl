@@ -55,23 +55,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SendEmail">
+      <s:element name="SendActivationEmail">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="msgFrom" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="msgTo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="msgSubject" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="msgBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtUsername" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SendEmailResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SendEmailResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
+      <s:element name="SendActivationEmailResponse">
+        <s:complexType />
       </s:element>
       <s:element name="HelloWorld">
         <s:complexType />
@@ -103,11 +97,11 @@
   <wsdl:message name="addImageSoapOut">
     <wsdl:part name="parameters" element="tns:addImageResponse" />
   </wsdl:message>
-  <wsdl:message name="SendEmailSoapIn">
-    <wsdl:part name="parameters" element="tns:SendEmail" />
+  <wsdl:message name="SendActivationEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendActivationEmail" />
   </wsdl:message>
-  <wsdl:message name="SendEmailSoapOut">
-    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  <wsdl:message name="SendActivationEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendActivationEmailResponse" />
   </wsdl:message>
   <wsdl:message name="HelloWorldSoapIn">
     <wsdl:part name="parameters" element="tns:HelloWorld" />
@@ -128,9 +122,9 @@
       <wsdl:input message="tns:addImageSoapIn" />
       <wsdl:output message="tns:addImageSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="SendEmail">
-      <wsdl:input message="tns:SendEmailSoapIn" />
-      <wsdl:output message="tns:SendEmailSoapOut" />
+    <wsdl:operation name="SendActivationEmail">
+      <wsdl:input message="tns:SendActivationEmailSoapIn" />
+      <wsdl:output message="tns:SendActivationEmailSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -166,8 +160,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendEmail">
-      <soap:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+    <wsdl:operation name="SendActivationEmail">
+      <soap:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -214,8 +208,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendEmail">
-      <soap12:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+    <wsdl:operation name="SendActivationEmail">
+      <soap12:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

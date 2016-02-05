@@ -11,7 +11,7 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            passwordText.Attributes["type"] = "password";
         }
 
         protected void Button1_Click(object sender, EventArgs e)

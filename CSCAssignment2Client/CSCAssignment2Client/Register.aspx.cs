@@ -21,8 +21,11 @@ namespace CSCAssignment2Client
             registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
              bool register=obj.RegisterUser(usernameText.Text, passwordText.Text, dateofbirthCal.SelectedDate.ToString(),emailText.Text);
             if (register==true)
-            {
+            {   //Login user and set session id
+                emailservice.EmailWebService em = new emailservice.EmailWebService();
+                em.SendActivationEmail();x
                 Response.Redirect("Login.aspx");
+               
             }
             else
             {
