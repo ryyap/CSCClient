@@ -15,7 +15,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CSCAssignment2Client</a>
+           <a class="navbar-brand" href="Default.aspx"> Smiling Image Sharing</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>
@@ -28,7 +28,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navController">
         <ul class = "nav navbar-nav navbar-right">
              <li><a href = "Default.aspx">Home</a></li>
-          <li><a href = "Login.aspx">Login</a></li>
+        <li><a href = "Login.aspx"><asp:Label ID="lblLogin" runat="server" Text="Login" Visible="true"></asp:Label></a></li>
+            <li><a href = "Profile.aspx"><asp:Label ID="lblUser" runat="server" Text="" Visible="false"></asp:Label></a></li>    
+             <li><a href = "DisplayImages.aspx"><asp:Label ID="lblGallery" runat="server" Text="Your Images" Visible="false"></asp:Label></a></li>      
+          <li><a href = "Logout.aspx"><asp:Label ID="lblLogout" runat="server" Text="Logout" Visible="false"></asp:Label></a></li>   
           
         </ul>
         <!--Top Right Navbar End-->
@@ -62,7 +65,10 @@
     </Columns>
     </asp:GridView>
        
-    </form>
+   
+            <h2>Wanna upload more images?</h2><br />
+            <asp:Button ID="uploadButton" CssClass="btn btn-default" runat="server" Text="Upload Images here!" OnClick="uploadButton_Click"/>
+         </form>
              <!-- Content End -->                
          <div class = "col-lg-2 col-md-2">
              
@@ -70,7 +76,7 @@
         </div>
         
       </div>
-    
+    </div>
      <!-- JQuery -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 

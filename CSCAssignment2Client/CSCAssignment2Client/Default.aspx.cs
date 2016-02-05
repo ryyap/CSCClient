@@ -11,12 +11,49 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+           /* bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {
                 //lblWelcome.Text = "Welcome to Smiling Image Sharing!" + Context.User.Identity.Name;
-                lblLogin.Text = "Logout";
-                lblWelcome.Text="Welcome to Smiling Image Sharing!" + HttpContext.Current.Session["UserName"];
+                lblLogin.Visible = false;
+                lblLogout.Visible = true;
+                lblWelcome.Text="Welcome to Smiling Image Sharing," + HttpContext.Current.Session["UserName"]+"!";
+                loginButton.Visible = false;
+                uploadButton.Visible = true;
+                
+            }
+            else
+            {
+                lblLogin.Visible = true;
+                lblLogout.Visible = false;
+                lblWelcome.Text = "Welcome to Smiling Image Sharing !";
+                loginButton.Visible = true;
+                uploadButton.Visible = false;
+            }*/
+            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == true)
+            {
+                lblWelcome.Text = "Welcome to Smiling Image Sharing," + HttpContext.Current.User.Identity.Name + "!";
+                lblUser.Visible = true;
+                lblUser.Text = Context.User.Identity.Name;
+                lblLogin.Visible = false;
+                lblGallery.Visible = true;
+                lblLogout.Visible = true;
+                loginButton.Visible = false;
+                uploadButton.Visible = true;
+
+
+            }
+            else
+            {
+                lblUser.Text = "";
+                lblUser.Visible = false;
+                lblLogin.Visible = true;
+                lblLogout.Visible = false;
+                lblGallery.Visible = false;
+                lblWelcome.Text = "Welcome to Smiling Image Sharing !";
+                loginButton.Visible = true;
+                uploadButton.Visible = false;
             }
         }
   
@@ -24,6 +61,11 @@ namespace CSCAssignment2Client
         protected void loginButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
+        }
+
+        protected void uploadButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("upload.aspx");
         }
     }
 }
