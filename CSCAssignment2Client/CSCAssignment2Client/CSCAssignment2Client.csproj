@@ -81,6 +81,7 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="DisplayImages.aspx" />
     <Content Include="ExperimentBlobRetrieval.html" />
+    <Content Include="GeoPlugin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Logout.aspx" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="DisplayImages.aspx.designer.cs">
       <DependentUpon>DisplayImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GeoPlugin.aspx.cs">
+      <DependentUpon>GeoPlugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GeoPlugin.aspx.designer.cs">
+      <DependentUpon>GeoPlugin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

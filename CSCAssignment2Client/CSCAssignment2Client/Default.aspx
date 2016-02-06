@@ -80,7 +80,7 @@
    bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
                           <br /> <br />
-               <div id="resultContainer">fk</div>
+               <div id="resultContainer"></div>
                     <br /> <br />
                     <div id="resultBox"></div>
         
@@ -101,7 +101,12 @@
       <!-- Bootstrap -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
 
+      <!-- GeoPlugin -->
+      <script  src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+      
        <script>
+           var country = geoplugin_city();
+           var city = geoplugin_countryName();
         window.$resultBoxElement = $('#resultBox');
         $(document).ready(function () {
             handler = $.ajax({
@@ -134,10 +139,10 @@
         });
 
         function GetLocalWeather(e) {
-            var country = "Singapore";
+           // var country = "Singapore";
 
             var localWeatherInput = {
-                query: country,
+                query: country+","+city,
                 format: 'JSON',
                 num_of_days: '2',
                 date: '',
@@ -179,7 +184,7 @@
             */
             var _FreeApiKey = 'd8987b0ad57f6441eba580b096508';
             var url = _FreeApiBaseURL + 'weather.ashx?q=' + input.query + '&format=' + input.format + '&extra=' + input.extra + '&num_of_days=' + input.num_of_days + '&date=' + input.date + '&fx=' + input.fx + '&cc=' + input.cc + '&includelocation=' + input.includelocation + '&show_comments=' + input.show_comments + '&key=' + _FreeApiKey;
-
+            //weather.ashx?q=Singapore,Singapore&key= + d8987b0ad57f6441eba580b096508
             jsonP(url, input.callback);
         }
 
