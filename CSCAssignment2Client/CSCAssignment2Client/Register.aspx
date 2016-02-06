@@ -70,7 +70,7 @@
           <div class="form-group">
            <label>Date Of Birth:</label>
               <asp:TextBox ID="dateofBirth"  class="datefield" data-val="true" data-val-required="Date is required" 
-       type="date" runat="server" required></asp:TextBox>
+       type="date" runat="server"></asp:TextBox>
             
             <span class="help-block with-errors"></span>
           </div>

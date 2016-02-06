@@ -11,6 +11,8 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string id = "";
+            id = (string)(Session["ID"]);
             bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {

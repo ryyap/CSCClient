@@ -39,7 +39,9 @@ namespace CSCAssignment2Client
         {
             int length = FileUpload1.PostedFile.ContentLength;
             string fileName = FileUpload1.FileName.ToString();
-            int userid =  Convert.ToInt32(TextBox1.Text);
+            string id = "";
+            id = (string)(Session["ID"]);
+            int userid = Int32.Parse(id);
             imgservice.ImgWebService imgSvc = new imgservice.ImgWebService();
             blobservice.BlobManager blobSvc = new blobservice.BlobManager();
 

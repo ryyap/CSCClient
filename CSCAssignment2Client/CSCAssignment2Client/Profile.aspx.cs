@@ -12,6 +12,7 @@ namespace CSCAssignment2Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            passwordText.Attributes["type"] = "password";
             if (!IsPostBack)
             {
                 string id ="";
@@ -53,7 +54,9 @@ namespace CSCAssignment2Client
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int userID = 6;
+            string id = "";
+            id = (string)(Session["ID"]);
+            int userID = Int32.Parse(id);
             int count;
 
             string inUser;
