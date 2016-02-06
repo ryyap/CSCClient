@@ -19,10 +19,6 @@ namespace CSCAssignment2Client
         {
             //Goes to Registration Web Service to process registration
            
-
-       
-                //Valid Request
-
                 registerservice.RegisterWebService obj = new registerservice.RegisterWebService();
                 bool register = obj.RegisterUser(usernameText.Text, passwordText.Text,dateofBirth.Text, emailText.Text);
                 if (register == true)

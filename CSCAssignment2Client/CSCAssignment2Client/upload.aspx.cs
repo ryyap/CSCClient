@@ -41,7 +41,7 @@ namespace CSCAssignment2Client
             string fileName = FileUpload1.FileName.ToString();
             string id = "";
             id = (string)(Session["ID"]);
-            int userid = Int32.Parse(id);
+            int userID = Int32.Parse(id);
             imgservice.ImgWebService imgSvc = new imgservice.ImgWebService();
             blobservice.BlobManager blobSvc = new blobservice.BlobManager();
 
@@ -56,7 +56,7 @@ namespace CSCAssignment2Client
 
                     string uri = blobSvc.UploadFile(Image, length, fileName); 
 
-                    imgSvc.addImage(userid, Image, uri);
+                    imgSvc.addImage(userID, Image, uri);
 
                     //add this line
                     msg.InnerHtml += "<br/> Successfully Added";

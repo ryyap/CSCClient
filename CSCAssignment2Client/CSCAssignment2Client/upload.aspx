@@ -54,7 +54,7 @@
         <!-- Content -->
         <div class = "col-lg-8 col-md-8" >
     <form id="form1" runat="server">
-
+        <h2>Upload Image</h2>
     <div>
            <div class="form-group">
             <label>Select File:</label>

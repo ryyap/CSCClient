@@ -2,59 +2,6 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="getTenRecentImages">
-        <s:complexType />
-      </s:element>
-      <s:element name="getTenRecentImagesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getTenRecentImagesResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getImagesByID">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getImagesByIDResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getImagesByIDResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="addImage">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="inUploadedBy" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="inImageData" type="s:base64Binary" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="addImageResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="addImageResult" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="SendActivationEmail">
         <s:complexType>
           <s:sequence>
@@ -93,24 +40,6 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="getTenRecentImagesSoapIn">
-    <wsdl:part name="parameters" element="tns:getTenRecentImages" />
-  </wsdl:message>
-  <wsdl:message name="getTenRecentImagesSoapOut">
-    <wsdl:part name="parameters" element="tns:getTenRecentImagesResponse" />
-  </wsdl:message>
-  <wsdl:message name="getImagesByIDSoapIn">
-    <wsdl:part name="parameters" element="tns:getImagesByID" />
-  </wsdl:message>
-  <wsdl:message name="getImagesByIDSoapOut">
-    <wsdl:part name="parameters" element="tns:getImagesByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="addImageSoapIn">
-    <wsdl:part name="parameters" element="tns:addImage" />
-  </wsdl:message>
-  <wsdl:message name="addImageSoapOut">
-    <wsdl:part name="parameters" element="tns:addImageResponse" />
-  </wsdl:message>
   <wsdl:message name="SendActivationEmailSoapIn">
     <wsdl:part name="parameters" element="tns:SendActivationEmail" />
   </wsdl:message>
@@ -130,18 +59,6 @@
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
   <wsdl:portType name="EmailWebServiceSoap">
-    <wsdl:operation name="getTenRecentImages">
-      <wsdl:input message="tns:getTenRecentImagesSoapIn" />
-      <wsdl:output message="tns:getTenRecentImagesSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="getImagesByID">
-      <wsdl:input message="tns:getImagesByIDSoapIn" />
-      <wsdl:output message="tns:getImagesByIDSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="addImage">
-      <wsdl:input message="tns:addImageSoapIn" />
-      <wsdl:output message="tns:addImageSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="SendActivationEmail">
       <wsdl:input message="tns:SendActivationEmailSoapIn" />
       <wsdl:output message="tns:SendActivationEmailSoapOut" />
@@ -157,33 +74,6 @@
   </wsdl:portType>
   <wsdl:binding name="EmailWebServiceSoap" type="tns:EmailWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getTenRecentImages">
-      <soap:operation soapAction="http://tempuri.org/getTenRecentImages" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getImagesByID">
-      <soap:operation soapAction="http://tempuri.org/getImagesByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="addImage">
-      <soap:operation soapAction="http://tempuri.org/addImage" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="SendActivationEmail">
       <soap:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
       <wsdl:input>
@@ -214,33 +104,6 @@
   </wsdl:binding>
   <wsdl:binding name="EmailWebServiceSoap12" type="tns:EmailWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getTenRecentImages">
-      <soap12:operation soapAction="http://tempuri.org/getTenRecentImages" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getImagesByID">
-      <soap12:operation soapAction="http://tempuri.org/getImagesByID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="addImage">
-      <soap12:operation soapAction="http://tempuri.org/addImage" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="SendActivationEmail">
       <soap12:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
       <wsdl:input>

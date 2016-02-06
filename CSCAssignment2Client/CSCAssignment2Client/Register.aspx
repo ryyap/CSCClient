@@ -18,7 +18,7 @@
    <!--Navbar Container-->
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="Default.aspx">CSCAssignment2Client</a>
+        <a class="navbar-brand" href="Default.aspx">Smiling Image Sharing</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span>
          <span class="icon-bar"></span>

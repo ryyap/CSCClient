@@ -80,10 +80,8 @@
    bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
                           <br /> <br />
-<<<<<<< HEAD
-=======
               <h3>Local Weather</h3>
->>>>>>> origin/master
+
                <div id="resultContainer"></div>
                     <br /> <br />
                   <h3>Latest Images</h3>
@@ -163,6 +161,7 @@
         function LocalWeatherCallback(localWeather) {
 
             output = "";
+            output += "Your location is: "+country + "," + city,
             output += "<br/> Humidity: " + localWeather.data.current_condition[0].humidity;
             output += "<br/> Temp C: " + localWeather.data.current_condition[0].temp_C;
             output += "<br/> Visibility: " + localWeather.data.current_condition[0].weatherDesc[0].value;

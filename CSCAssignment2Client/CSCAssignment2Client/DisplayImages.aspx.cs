@@ -76,19 +76,22 @@ namespace CSCAssignment2Client
 
         protected void imgData_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            string Id = "";
+            Id = (string)(Session["ID"]);
+            int userID = Int32.Parse(Id);
             imgservice.ImgWebService svc = new imgservice.ImgWebService();
             string rowIndex = e.CommandArgument.ToString();
             int id = Int32.Parse(imgData.DataKeys[Int32.Parse(rowIndex)].Value.ToString());
             if (e.CommandName == "deleteCommand")
             {
                 svc.deleteOneImageRecord(id);
+                
+               DataSet workDS = new DataSet();
+               workDS = svc.getRecordsByUser(userID);
 
-                DataSet workDS = new DataSet();
-                workDS = svc.getTenRecentImages();
 
-
-                imgData.DataSource = svc.getTenRecentImages();
-                imgData.DataBind();
+               imgData.DataSource = svc.getRecordsByUser(userID);
+               imgData.DataBind();
             }
             {
             }

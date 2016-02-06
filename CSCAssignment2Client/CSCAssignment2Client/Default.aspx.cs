@@ -13,10 +13,11 @@ namespace CSCAssignment2Client
         {
             string id = "";
             id = (string)(Session["ID"]);
+            string userName = HttpContext.Current.User.Identity.Name;
             bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (val1 == true)
             {
-                lblWelcome.Text = "Welcome to Smiling Image Sharing," + HttpContext.Current.User.Identity.Name + "!";
+                lblWelcome.Text = "Welcome to Smiling Image Sharing," + userName.Split('@')[0]+"!";
                 lblUser.Visible = true;
                 lblUser.Text = Context.User.Identity.Name;
                 lblLogin.Visible = false;
