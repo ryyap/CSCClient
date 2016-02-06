@@ -80,8 +80,13 @@
    bottom:5px; " runat="server" Text="Upload Images here!" Visible="false" OnClick="uploadButton_Click"/>
 
                           <br /> <br />
+<<<<<<< HEAD
+=======
+              <h3>Local Weather</h3>
+>>>>>>> origin/master
                <div id="resultContainer"></div>
                     <br /> <br />
+                  <h3>Latest Images</h3>
                     <div id="resultBox"></div>
         
          </form>
@@ -158,13 +163,10 @@
         function LocalWeatherCallback(localWeather) {
 
             output = "";
-            output += "Current Weather Condition is : "
-            output += "<br/> Cloud Cover: " + localWeather.data.current_condition[0].cloudcover;
             output += "<br/> Humidity: " + localWeather.data.current_condition[0].humidity;
             output += "<br/> Temp C: " + localWeather.data.current_condition[0].temp_C;
             output += "<br/> Visibility: " + localWeather.data.current_condition[0].weatherDesc[0].value;
-            output += "<br/> Observation Time: " + localWeather.data.current_condition[0].observation_time;
-            output += "<br/> Pressue: " + localWeather.data.current_condition[0].pressure;
+            output += "<br/> Observation Time(GMT): " + localWeather.data.current_condition[0].observation_time;
 
 
 

@@ -67,6 +67,20 @@
       <s:element name="SendActivationEmailResponse">
         <s:complexType />
       </s:element>
+      <s:element name="ValidateActivation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validationCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateActivationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateActivationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="HelloWorld">
         <s:complexType />
       </s:element>
@@ -103,6 +117,12 @@
   <wsdl:message name="SendActivationEmailSoapOut">
     <wsdl:part name="parameters" element="tns:SendActivationEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="ValidateActivationSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateActivation" />
+  </wsdl:message>
+  <wsdl:message name="ValidateActivationSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateActivationResponse" />
+  </wsdl:message>
   <wsdl:message name="HelloWorldSoapIn">
     <wsdl:part name="parameters" element="tns:HelloWorld" />
   </wsdl:message>
@@ -125,6 +145,10 @@
     <wsdl:operation name="SendActivationEmail">
       <wsdl:input message="tns:SendActivationEmailSoapIn" />
       <wsdl:output message="tns:SendActivationEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateActivation">
+      <wsdl:input message="tns:ValidateActivationSoapIn" />
+      <wsdl:output message="tns:ValidateActivationSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -162,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="SendActivationEmail">
       <soap:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateActivation">
+      <soap:operation soapAction="http://tempuri.org/ValidateActivation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -210,6 +243,15 @@
     </wsdl:operation>
     <wsdl:operation name="SendActivationEmail">
       <soap12:operation soapAction="http://tempuri.org/SendActivationEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateActivation">
+      <soap12:operation soapAction="http://tempuri.org/ValidateActivation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -18,8 +18,7 @@ namespace CSCAssignment2Client
        
 
         protected void loginButton_Click(object sender, EventArgs e)
-        {
-            string id; 
+        { 
 
             //Goes to Registration Web Service to process registration
             registerservice.RegisterWebService obj = new registerservice.RegisterWebService();

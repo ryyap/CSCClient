@@ -56,12 +56,6 @@
     <form id="form1" runat="server">
 
     <div>
-        <div class="form-group">
-            <label>UserID:</label>
-        <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
-            <span class="help-block with-errors"></span>
-          </div>
-
            <div class="form-group">
             <label>Select File:</label>
         <asp:FileUpload ID="FileUpload1" runat="server" />
